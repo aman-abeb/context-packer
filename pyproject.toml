@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "context-packer"
+version = "0.1.0"
+description = "Offline CLI that ranks a directory of docs by BM25 relevance to a query and packs them into a strict LLM token budget."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "click>=8.1.0",
+    "tiktoken>=0.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[project.scripts]
+context-packer = "context_packer.__main__:main"
+
+[tool.setuptools]
+packages = ["context_packer"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
